@@ -4,7 +4,7 @@ import Settings from '../../../assets/images/setting.png'
 
 function Navigation({ setCurrentView, setCurrentDropdown, currentView, currentDropdown }) {
   const [dropdownVisible, setDropdownVisible] = useState(false);
-  const dropdownRef = useRef(null); // Reference to the dropdown container
+  const dropdownRef = useRef(null); 
 
   const handleViewChange = event => {
     const newView = event.target.value;
@@ -23,7 +23,7 @@ function Navigation({ setCurrentView, setCurrentDropdown, currentView, currentDr
   };
 
   const handleOutsideClick = event => {
-    // Close the dropdown if the click is outside of the dropdown container
+    // Here I Close the dropdown if the click is outside of the dropdown container
     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
       setDropdownVisible(false);
     }
@@ -41,10 +41,8 @@ function Navigation({ setCurrentView, setCurrentDropdown, currentView, currentDr
       setCurrentDropdown(savedDropdown);
     }
 
-    // Attach the event listener to handle clicks outside of the dropdown
     document.addEventListener('mousedown', handleOutsideClick);
 
-    // Clean up by removing the event listener when the component unmounts
     return () => {
       document.removeEventListener('mousedown', handleOutsideClick);
     };
