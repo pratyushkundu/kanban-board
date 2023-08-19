@@ -8,6 +8,10 @@ import signal from '../../../../assets/images/signal-status.png'
 import plus from '../../../../assets/images/plus.png'
 import done from '../../../../assets/images/check.png'
 import close from '../../../../assets/images/close.png'
+import medium from '../../../../assets/images/cell-signal-high.svg'
+import high from '../../../../assets/images/cell-signal-full.svg'
+import low from '../../../../assets/images/cell-signal-medium.svg'
+
 
 const statusImages = {
   'In progress': todoImage,
@@ -15,9 +19,9 @@ const statusImages = {
   'Backlog': backlogImage,
   'Urgent': siren,
   'No priority': menubar,
-  'High': signal,
-  'Low': signal,
-  'Medium': signal,
+  'High': high,
+  'Low': low,
+  'Medium': medium,
   'Done':done,
   'Cancelled':close
 };
@@ -27,7 +31,7 @@ function StatusInfo({ status, count }) {
     <div className='status_info'>
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <div style={{ width: '18px', height: '18px' }}>
-          <img src={statusImages[status]} style={{ width: '15px', height: '15px' }} />
+          <img src={statusImages[status]} style={{ width: '22px', height: '22px' }} />
         </div>
         <div style={{ marginLeft: '12px',fontWeight:'500',opacity:'0.9' ,cursor:'pointer'}}>{status}</div>
         <div style={{ marginLeft: '12px' ,fontWeight:'400',opacity:'0.7' ,cursor:'pointer'}}>{count}</div>

@@ -15,8 +15,8 @@ function UserStatusInfo({ username, count,ticket}) {
           <div style={{ width: '18px', height: '18px' }}>
             <img src={user.image} style={{ width: '18px', height: '18px' }} />
           </div>
-          <div style={{ marginLeft: '12px', fontWeight: '500', opacity: '0.9' }}>{username}</div>
-          <div style={{ marginLeft: '12px', fontWeight: '400', opacity: '0.7' }}>{count}</div>
+          <div className="username" style={{ marginLeft: '12px', fontWeight: '500', opacity: '0.9' }}>{username}</div>
+          <div className="count" style={{ marginLeft: '12px', fontWeight: '400', opacity: '0.7' }} >{count}</div>
         </div>
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <div style={{ width: '14px', height: '14px', cursor: 'pointer' }}>

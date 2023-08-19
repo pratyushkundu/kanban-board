@@ -1,4 +1,4 @@
-*{
+* {
   scroll-behavior: smooth;
 }
 
@@ -28,7 +28,6 @@ code {
 }
 
 ::-webkit-scrollbar-thumb {
-
   visibility: hidden;
 }
 
@@ -43,12 +42,12 @@ nav {
   padding-top: 20px;
   z-index: 10;
 }
-select{
-  border: 1px solid #B9B4C7;
+select {
+  border: 1px solid #b9b4c7;
   border-radius: 3px;
   padding: 3px;
   padding-left: 6px;
-  width:80px;
+  width: 80px;
   font-weight: 600;
   opacity: 0.8;
   box-shadow: 0px 1px 4px 0px rgba(2, 36, 40, 0.2);
@@ -57,7 +56,6 @@ select{
 }
 
 body {
-
   width: 100%;
   /* height: ; */
   background-color: var(--grey);
@@ -115,7 +113,6 @@ body {
   display: flex;
   width: 100%;
   margin-top: -20px;
-  
 }
 
 .card_footer {
@@ -174,7 +171,7 @@ body {
   box-shadow: 0px 1px 4px 0px rgba(2, 36, 40, 0.3);
   font-size: medium;
   font-weight: 500;
- cursor: pointer;
+  cursor: pointer;
 }
 
 .dropdownSelect .group {
@@ -193,19 +190,44 @@ body {
   margin-top: 10px;
   /* box-shadow: 0px 1px 4px 0px rgba(2, 36, 40, 0.4); */
 }
+.card_text_user {
+  font-size: 15px;
+ font-weight:600;
+  opacity: 0.8;
+}
+.tag{
+  color:grey;
+  font-size: 14px;
+}
+@media (max-width: 1200px) and (min-width: 1100px) {
+  .username {
+    font-size: 13px;
+  }
+  .card_text_user {
+    font-size: 12px;
+    font-weight: 600;
 
+  }
+  .count{
+    font-size: 12px;
+    padding-top: 1px;
+  }
+  .tag{
+    font-size: 12px;
+  }
+}
 
 @media (max-width: 1100px) and (min-width: 860px) {
   .cards {
-    flex-direction: column; 
-    padding: 20px; 
+    flex-direction: column;
+    padding: 20px;
   }
   .sortedTickets {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    }
-    .card1 {
+  }
+  .card1 {
     width: 25%;
     margin-right: 20px;
     margin-bottom: 10px;
@@ -221,15 +243,14 @@ body {
     /* overflow-x: hidden; */
   }
   .cards {
-    flex-direction: column; 
-    padding: 10px; 
+    flex-direction: column;
+    padding: 10px;
   }
   .card_component {
-    width:95%;
+    width: 95%;
     padding-left: 15px;
     padding-right: 10px;
     /* flex-wrap: wrap; */
-
   }
   .sortedTickets {
     display: flex;
@@ -237,7 +258,7 @@ body {
     flex-wrap: wrap;
   }
   .card1 {
-    width:35%;
+    width: 35%;
     margin-right: 20px;
     margin-bottom: 10px;
   }
@@ -246,10 +267,10 @@ body {
   * {
     /* overflow-x: hidden; */
   }
- 
+
   .cards {
-    flex-direction: column; 
-    padding: 10px; 
+    flex-direction: column;
+    padding: 10px;
   }
   .card_component {
     padding-left: 5px;
@@ -273,5 +294,4 @@ body {
     padding-left: 3%;
     padding-right: 8%;
   }
-
 }

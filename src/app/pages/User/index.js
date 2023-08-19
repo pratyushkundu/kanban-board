@@ -3,7 +3,7 @@ import UserCard from '../../Components/CardComponent/UserCard';
 import UserStatusInfo from '../../Components/StatusComponent/UserStatus';
 
 
-function Username({sortBy}) {
+function Username({ sortBy }) {
   const [tickets, setTickets] = useState([]);
   const [users, setUsers] = useState([]);
 
@@ -37,20 +37,21 @@ function Username({sortBy}) {
 
   return (
     <div className='cards'>
-      {users.map(user => (
-        <div className='card_component' key={user.id}>
-        <div className='statusTickets'>
-          <UserStatusInfo username={user.name} count={userTasksCount[user.id] || 0} ticket={user}/>
-          </div>
-          <div className='sortedTickets'>
-          {sortedTickets
-            .filter(ticket => ticket.userId === user.id)
-            .map(ticket => (
-              <UserCard ticket={ticket} key={ticket.id} />
-            ))}
+      {users
+        .map(user => (
+          <div className='card_component' key={user.id}>
+            <div className='statusTickets'>
+              <UserStatusInfo username={user.name} count={userTasksCount[user.id] || 0} ticket={user} />
             </div>
-        </div>
-      ))}
+            <div className='sortedTickets'>
+              {sortedTickets
+                .filter(ticket => ticket.userId === user.id)
+                .map(ticket => (
+                  <UserCard ticket={ticket} key={ticket.id} />
+                ))}
+            </div>
+          </div>
+        ))}
     </div>
   );
 }

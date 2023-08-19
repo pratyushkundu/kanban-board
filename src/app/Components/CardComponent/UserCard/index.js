@@ -18,10 +18,8 @@ function UserCard({ ticket }) {
         <div style={{ marginTop: '16px', }}>
           <img src={statusimage} style={{ width: '20px', height: '20px' }} />
         </div>
-        <div style={{ paddingLeft: '7px' }}>
+        <div className='card_text_user' style={{ paddingLeft: '7px' }}>
           <p
-            className='card-text'
-            style={{ fontWeight: '600', opacity: '0.8', fontSize: '15px' }}
           >
             {ticket.title.length > 50 ? ticket.title.substring(0, 40) + '...' : ticket.title}
           </p>
@@ -40,7 +38,7 @@ function UserCard({ ticket }) {
         <div className='card_footer_req'>
           <div className='rounded'></div>
           <div>
-            <p className='' style={{ fontSize: '14px', color: 'grey' }}>
+            <p className='tag'>
               {ticket.tag[0]}
             </p>
           </div>

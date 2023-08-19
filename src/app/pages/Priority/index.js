@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import StatusInfo from '../../Components/StatusComponent/Status';
 import TicketCard from '../../Components/CardComponent/Cards';
 
-function UserPriority({ sortBy,currentView }) {
+function UserPriority({ sortBy, currentView }) {
   const [tickets, setTickets] = useState([]);
 
   useEffect(() => {
@@ -19,42 +19,34 @@ function UserPriority({ sortBy,currentView }) {
     0: 'No priority'
   };
 
+  const priorityOrder = ['Urgent', 'High', 'Medium', 'Low', 'No priority'];
+
+  const sortedTickets = sortBy === 'priority'
+    ? [...tickets].sort((a, b) => priorityOrder.indexOf(b.priority) - priorityOrder.indexOf(a.priority))
+    : [...tickets].sort((a, b) => a.title.localeCompare(b.title));
+
   const priorityTickets = {};
 
-  tickets.forEach(ticket => {
+  sortedTickets.forEach(ticket => {
     const priorityType = priorityMapping[ticket.priority];
-    if (!priorityTickets[priorityType]) {
-      priorityTickets[priorityType] = [];
-    }
-    priorityTickets[priorityType].push(ticket);
+    priorityTickets[priorityType] = (priorityTickets[priorityType] || []).concat(ticket);
   });
 
-  let sortedTickets = [];
-  if (sortBy === 'priority') {
-    sortedTickets = tickets.sort((a, b) => a.priority - b.priority);
-  } else if (sortBy === 'title') {
-    sortedTickets = [...tickets].sort((a, b) => a.title.localeCompare(b.title));
-  }
-
   return (
-    <>
-      <div className='cards'>
-        {Object.entries(priorityTickets).map(([priorityType, ticketsByPriority]) => (
-          <div className='card_component' key={priorityType}>
-            <div className='statusTickets'>
-              <StatusInfo status={priorityType} count={ticketsByPriority.length} />
-            </div>
-            <div className='sortedTickets'>
-              {sortedTickets
-                .filter(ticket => priorityMapping[ticket.priority] === priorityType)
-                .map(ticket => (
-                  <TicketCard ticket={ticket} key={ticket.id} currentView={currentView}/>
-                ))}
-            </div>
+    <div className='cards'>
+      {priorityOrder.map(priorityType => (
+        <div className='card_component' key={priorityType}>
+          <div className='statusTickets'>
+            <StatusInfo status={priorityType} count={priorityTickets[priorityType]?.length || 0} />
           </div>
-        ))}
-      </div>
-    </>
+          <div className='sortedTickets'>
+            {priorityTickets[priorityType]?.map(ticket => (
+              <TicketCard ticket={ticket} key={ticket.id} currentView={currentView} />
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
   );
 }
 
